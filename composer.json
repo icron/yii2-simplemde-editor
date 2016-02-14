@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "bower/simplemde": "*"
+        "bower-asset/simplemde": "*"
     },
     "autoload": {
         "psr-4": {
