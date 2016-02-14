@@ -1,0 +1,27 @@
+{
+    "name": "icron/yii2-simplemde-editor",
+    "description": "SimpleMDE - Markdown Editor widget for Yii 2",
+    "keywords": ["yii", "SimpleMDE redactor", "SimpleMDE"],
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/icron/yii2-simplemde-editor/issues",
+        "forum": "http://www.yiiframework.com/forum/",
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "source": "https://github.com/icron/yii2-simplemde-editor"
+    },
+    "authors": [
+        {
+            "name": "Alexander Lukyanchikov",
+            "email": "arbuscula@mail.ru"
+        }
+    ],
+    "require": {
+        "bower/simplemde": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "icron\\simplemde\\": "src/"
+        }
+    }
+}
