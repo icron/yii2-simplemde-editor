@@ -10,19 +10,12 @@ class Widget extends InputWidget
 {
     public $htmlOptions = [];
 
-    public function init()
-    {
-        parent::init();
-        if (!isset($this->htmlOptions['id'])) {
-            $this->htmlOptions['id'] = $this->getId();
-        }
-    }
-
     public function run()
     {
         if ($this->hasModel()) {
             echo Html::activeTextarea($this->model, $this->attribute, $this->htmlOptions);
         } else {
+            $this->htmlOptions['id'] = $this->getId();
             echo Html::textarea($this->name, $this->value, $this->htmlOptions);
         }
         $this->registerScripts();
@@ -31,9 +24,10 @@ class Widget extends InputWidget
     public function registerScripts()
     {
         $view = $this->getView();
-        $this->options['element'] = new JsExpression("jQuery('#{$this->htmlOptions['id']}')[0]");
+        SimpleMDEAsset::register($view);
+        $this->options['element'] = new JsExpression("jQuery('#{$this->options['id']}')[0]");
         $options = Json::encode($this->options);
-        $js = "jQuery('#{$this->htmlOptions['id']}').data('simpleMDE', new SimpleMDE($options));";
+        $js = "jQuery('#{$this->options['id']}').data('simpleMDE', new SimpleMDE($options));";
         $view->registerJs($js);
     }
 }
